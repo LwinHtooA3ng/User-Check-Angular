@@ -1,0 +1,27 @@
+<div>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+
+            <div class="form-group">
+                <label for="user">User</label>
+                <input type="text" class="form-control" id="user" required [(ngModel)]="user.username" name="user">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+            </div>
+
+            <div><p class="text-muted">{{ checkmessage }}</p></div>
+
+            <button (click)="saveUser()" class="btn btn-outline-primary">Submit</button>
+
+        </div>
+
+        <div *ngIf="submitted">
+            <h4 class="add-success">User was added successfully!</h4>
+            <button class="btn btn-success" (click)="newUser()">Add</button>
+        </div>
+
+    </div>
+</div>

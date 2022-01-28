@@ -1,0 +1,45 @@
+<!-- <h1>User list</h1>
+
+<h3 *ngFor="let user of users; let i = index">{{ user.username }} - {{ i }}</h3> -->
+
+<div class="list row">
+
+    <div class="col-md-6">
+      <h4 class="user-title text-muted">Users List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let user of users; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveUser(user, i)"
+        >
+          {{ user.username }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllUsers()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6 user-spec">
+      <div *ngIf="currentuser.id">
+        <h4>User</h4>
+        <div>
+          <label><strong>User Name : </strong></label> {{ currentuser.username }}
+        </div>
+        <div>
+          <label><strong>Password : </strong></label>
+          {{ currentuser.password }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/users/{{ currentuser.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentuser">
+        <br />
+        <p>Please click on a Tutorial...</p>
+      </div>
+    </div>
+  </div>
